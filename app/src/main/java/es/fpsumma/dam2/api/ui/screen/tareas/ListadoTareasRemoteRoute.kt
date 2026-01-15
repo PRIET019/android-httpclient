@@ -1,19 +1,22 @@
 package es.fpsumma.dam2.api.ui.screen.tareas
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import es.fpsumma.dam2.api.ui.navegation.Routes
-import es.fpsumma.dam2.api.viewmodel.TareasViewModel
-
+import es.fpsumma.dam2.api.viewmodel.TareasRemoteViewModel
 
 @Composable
-fun ListadoTareasScreen(
+fun ListadoTareasRemoteRoute(
     navController: NavHostController,
-    tareasViewModel: TareasViewModel
+    vm: TareasRemoteViewModel
 ) {
-    val state = tareasViewModel.state.collectAsState()
+    LaunchedEffect(Unit) {
+        vm.loadTareas()
+    }
+
+    val state = vm.uiState.collectAsState()
 
     ListadoTareasContent(
         state = state.value,
@@ -26,9 +29,6 @@ fun ListadoTareasScreen(
         onOpenDetalle = { id ->
             navController.navigate(Routes.tareaView(id))
         },
-        onDelete = { id ->
-            tareasViewModel.deleteTareaById(id)
-        },
-        modifier = Modifier
+        onDelete = {}, //
     )
 }

@@ -10,6 +10,7 @@ import es.fpsumma.dam2.api.model.Tarea
 import es.fpsumma.dam2.api.ui.screen.tareas.TareasUIState
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -35,11 +36,13 @@ class TareasViewModel(app: Application) : AndroidViewModel(app) {
 
     fun deleteTareaById(id: Int) = viewModelScope.launch { dao.deleteById(id) }
 
-}   val state: StateFlow<TareasUIState> =
-    dao.getAllTareas()
-        .map { lista ->
-            TareasUIState(
-                tareas = lista.map { Tarea(it.id, it.titulo, it.descripcion) }
-            )
-        }
-        .stateIn(viewModelScope, SharingStarted.Lazily, TareasUIState())
+    val state: StateFlow<TareasUIState> =
+        dao.getAllTareas()
+            .map { lista ->
+                TareasUIState(
+                    tareas = lista.map { Tarea(it.id, it.titulo, it.descripcion) }
+                )
+            }
+            .stateIn(viewModelScope, SharingStarted.Lazily, TareasUIState())
+
+}

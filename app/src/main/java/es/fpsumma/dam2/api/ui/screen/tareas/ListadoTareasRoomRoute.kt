@@ -15,7 +15,7 @@ fun ListadoTareasRoomRoute(
     modifier: Modifier = Modifier,
 ) {
 
-    val state by vm.state.collectAsState()
+    val state by vm.state.collectAsState(initial = TareasUIState())
 
     ListadoTareasContent(
         state = state,

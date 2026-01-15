@@ -1,7 +1,6 @@
 package es.fpsumma.dam2.api.data.local
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -11,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TareaDao {
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.Companion.IGNORE)
     suspend fun insert(tarea: TareaEntity)
 
     @Update

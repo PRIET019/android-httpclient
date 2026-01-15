@@ -2,14 +2,18 @@ package es.fpsumma.dam2.api.ui.navegation
 
 object Routes {
     const val HOME = "home"
-    const val TAREA_LISTADO = "tareas/listado"
+    const val TAREA_LISTADO = "tareas_listado"
 
-    const val TAREA_ADD = "tareas/nueva"
+    const val TAREA_LISTADO_API = "tarea_listado_api"
 
-    const val TAREA_VIEW = "tareas/detalle/{id}"
+
+    const val TAREA_ADD = "tareas_nueva"
+
+    const val TAREA_VIEW = "tareas_detalle/{id}"
 
     fun tareaView(id: Int): String {
         return "tareas/detalle/$id"
     }
 
 }
+

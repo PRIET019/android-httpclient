@@ -16,7 +16,7 @@ fun ListadoTareasRemoteRoute(
         vm.loadTareas()
     }
 
-    val state = vm.uiState.collectAsState()
+    val state = vm.state.collectAsState()
 
     ListadoTareasContent(
         state = state.value,
@@ -29,6 +29,8 @@ fun ListadoTareasRemoteRoute(
         onOpenDetalle = { id ->
             navController.navigate(Routes.tareaView(id))
         },
-        onDelete = {}, //
+        onDelete = { id ->
+            vm.deleteTarea(id)
+        }
     )
 }

@@ -37,7 +37,7 @@ fun ListadoTareasContent(
     onAdd: () -> Unit,
     onOpenDetalle: (Int) -> Unit,
     onDelete: (Int) -> Unit,
-    modifier: Modifier
+    modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {

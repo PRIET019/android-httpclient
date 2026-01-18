@@ -17,7 +17,8 @@ import androidx.compose.ui.unit.dp
 fun DetalleTareaContent(
     tarea: Tarea?,
     onBack: () -> Unit,
-    onSave: (titulo: String, descripcion: String) -> Unit
+    onSave: (titulo: String, descripcion: String) -> Unit,
+    modifier: Modifier = Modifier
 ) {
     if (tarea == null) {
         Box(

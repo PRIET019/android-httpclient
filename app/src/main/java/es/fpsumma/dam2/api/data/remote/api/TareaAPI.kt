@@ -22,13 +22,12 @@ interface TareaAPI {
             @Path("id") id: Int
         )
 
-        @GET("api/tareas/{id}")
-        suspend fun getTareaById(
-            @Path("id") id: Int
-        )
+    @GET("tareas/{id}")
+    suspend fun detalle(@Path("id") id: Int): Response<TareaDTO>
 
 
-        @POST("api/tareas")
+
+    @POST("api/tareas")
         suspend fun createTarea(
             @Body request: TareaCreateRequestDTO
         )

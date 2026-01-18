@@ -1,19 +1,19 @@
 package es.fpsumma.dam2.api.ui.screen.tareas
 
+
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import es.fpsumma.dam2.api.ui.navegation.Routes
-import es.fpsumma.dam2.api.viewmodel.TareasViewModel
+import es.fpsumma.dam2.api.viewmodel.TareasRemoteViewModel
 
 @Composable
-fun NuevaTareaRoomRoute(
+fun NuevaTareaRemoteRoute(
     navController: NavController,
-    vm: TareasViewModel,
+    vm: TareasRemoteViewModel,
     modifier: Modifier = Modifier
 ) {
     NuevaTareaContent(
-
         onBack = {
             navController.popBackStack()
         },
